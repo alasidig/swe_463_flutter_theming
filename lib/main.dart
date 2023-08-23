@@ -54,6 +54,30 @@ class MyHomePage extends StatelessWidget {
                 Text("Card Content"),
               ]),
             ),
+            const Text(
+              "Sports Section",
+            ),
+            Theme(
+              data: Theme.of(context).copyWith(
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: Colors.green,
+                )
+              ),
+              child: Builder(
+                builder: (ctx) {
+                  return Card(
+                    child: Column(children: [
+                      Text(
+                        "Sport Title",
+                        style:
+                            TextStyle(color: Theme.of(ctx).colorScheme.primary),
+                      ),
+                      Text("Sport Content"),
+                    ]),
+                  );
+                }
+              ),
+            ),
             FilledButton(onPressed: () {}, child: const Text("Filled Button")),
           ],
         ),
