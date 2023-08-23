@@ -7,8 +7,11 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final ThemeData myTheme = ThemeData.light(useMaterial3: true)
-      .copyWith(colorScheme: ColorScheme.fromSeed(seedColor: Colors.green));
+  final ThemeData myTheme = ThemeData.from(
+      useMaterial3: true,
+      colorScheme: const ColorScheme.light(
+        primary: Colors.orange,
+      ));
 
   // This widget is the root of your application.
   @override
