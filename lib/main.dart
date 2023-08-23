@@ -6,20 +6,18 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
- final ThemeData myTheme =ThemeData(
-  // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-brightness:   Brightness.dark,
-   useMaterial3: true,
-  );
+
+  final ThemeData myTheme = ThemeData.light(useMaterial3: true)
+      .copyWith(colorScheme: ColorScheme.fromSeed(seedColor: Colors.green));
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.light( useMaterial3: true),
+      theme: myTheme,
       darkTheme: ThemeData.dark(useMaterial3: true),
-
       home: const MyHomePage(title: 'Theming Demo'),
     );
   }
