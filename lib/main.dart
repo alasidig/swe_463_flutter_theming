@@ -41,10 +41,16 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const Text("Welocome to the Flutter Demo"),
-            const Card(
+            const Text(
+              "Welocome to the Flutter Demo",
+            ),
+            Card(
               child: Column(children: [
-                Text("Card Title"),
+                Text(
+                  "Card Title",
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
+                ),
                 Text("Card Content"),
               ]),
             ),
