@@ -17,7 +17,9 @@ brightness:   Brightness.dark,
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: myTheme,
+      theme: ThemeData.light( useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
+
       home: const MyHomePage(title: 'Theming Demo'),
     );
   }
