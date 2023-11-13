@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,12 @@ class _MyAppState extends State<MyApp> {
         seedColor: Colors.deepOrange,
         primary: Colors.brown[900],
         surface: Colors.brown[200],
-      ));
+      ),
+      textTheme: ThemeData.light().textTheme.copyWith(
+        headlineMedium: ThemeData.light().textTheme.headlineMedium?.copyWith(
+          color: Colors.brown[900],
+        )
+      ).apply(fontFamily: GoogleFonts.concertOne().fontFamily));
   ThemeMode themeMode = ThemeMode.system;
 
   void toggleTheme() {
@@ -65,17 +71,23 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const Text(
+             Text(
               "Welcome to the Flutter Demo",
+              style: Theme.of(context).textTheme.displaySmall,
             ),
+            Text(
+              'Section 1',
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+            const Divider(),
             Card(
               child: Column(children: [
                 Text(
                   "Card Title",
                   style:
-                      TextStyle(color: Theme.of(context).colorScheme.primary),
+                      Theme.of(context).textTheme.headlineMedium,
                 ),
-                const Text("Card Content"),
+                 Text("Card Content", style: Theme.of(context).textTheme.bodyLarge,),
               ]),
             ),
             TextButton.icon(
