@@ -14,17 +14,32 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final ThemeData myTheme = ThemeData.from(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.deepOrange,
-        primary: Colors.brown[900],
-        surface: Colors.brown[200],
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.deepOrange,
+      primary: Colors.brown[900],
+      surface: Colors.brown[200],
+    ),
+    textTheme: ThemeData.light()
+        .textTheme
+        .copyWith(
+            headlineMedium:
+                ThemeData.light().textTheme.headlineMedium?.copyWith(
+                      color: Colors.brown[900],
+                    ))
+        .apply(fontFamily: GoogleFonts.concertOne().fontFamily),
+  ).copyWith(
+    appBarTheme: const AppBarTheme(
+      centerTitle: true,
+    ),
+    cardTheme: CardTheme(
+      margin: const EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
-      textTheme: ThemeData.light().textTheme.copyWith(
-        headlineMedium: ThemeData.light().textTheme.headlineMedium?.copyWith(
-          color: Colors.brown[900],
-        )
-      ).apply(fontFamily: GoogleFonts.concertOne().fontFamily));
+      elevation: 4,
+    ),
+  );
   ThemeMode themeMode = ThemeMode.system;
 
   void toggleTheme() {
@@ -71,7 +86,7 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-             Text(
+            Text(
               "Welcome to the Flutter Demo",
               style: Theme.of(context).textTheme.displaySmall,
             ),
@@ -81,14 +96,19 @@ class MyHomePage extends StatelessWidget {
             ),
             const Divider(),
             Card(
-              child: Column(children: [
-                Text(
-                  "Card Title",
-                  style:
-                      Theme.of(context).textTheme.headlineMedium,
-                ),
-                 Text("Card Content", style: Theme.of(context).textTheme.bodyLarge,),
-              ]),
+              child: Padding(
+                padding: Theme.of(context).cardTheme.margin!,
+                child: Column(children: [
+                  Text(
+                    "Card Title",
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  Text(
+                    "Card Content",
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ]),
+              ),
             ),
             TextButton.icon(
                 onPressed: () async {
